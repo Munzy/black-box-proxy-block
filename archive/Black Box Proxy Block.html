@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://proxy.mind-media.com/block/ -->
+<html lang="en" class="gr__proxy_mind-media_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Black Box Proxy Block</title>
+<style>body{font-family:calibri,verdana,arial,helvetica,sans-serif;}img{float:left;margin-right:8px}code{background:#eee;border:1px solid #999;display:block;padding:16px;margin:8px;}</style>
+<link rel="icon" type="image/png" href="http://proxy.mind-media.com/block/favicon.png">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A discontinued blocklist to detect if an IP address is from an open proxy, Tor exit node, or public VPN.">
+</head><body data-gr-c-s-loaded="true">
+<img src="./Black Box Proxy Block_files/blackbox1x.webp" srcset="blackbox1x.png 1x, blackbox2x.png 2x, blackbox3x.png 3x, blackbox4x.png 4x" alt="■"><h1>Black Box Proxy Block</h1>
+<p>This blocklist has been discontinued. Although I was thrilled with its popularity, the public interface was putting too much strain on a server which I really need for other tasks. Thank you everyone for your interest and support, especially the people who helped contribute data and make the list more accurate. I see that there is demand for this type of service and I may attempt to revive it in the future when I have more time and resources. For now, a final copy of the blocklist generated on August 15, 2019 can be downloaded below. I hope it serves as a good starting point for your own proxy detection efforts! Best regards, -<a href="mailto:proxyblock@mind-media.com">Ythan</a></p>
+<p><b>MySQL Blocklist</b></p><p>
+</p><p>To retrieve a copy of the blocklist as a database dump, please run this command:
+<code>wget <a href="https://proxy.mind-media.com/block/blocklist.sql.gz">https://proxy.mind-media.com/block/blocklist.sql.gz</a></code></p>
+<p>To decompress the file, please run this command:
+<code>gunzip blocklist.sql.gz</code></p>
+<p>To import the information as a MySQL database, please run this command, and enter your root MySQL password when prompted:
+<code>mysql -u root -p &lt; blocklist.sql</code></p>
+<p>At this point you should have a "blocklist" database with an "IP" table containing about 2.5 million rows.</p>
+<p>When you want to check if someone is using a proxy, you would issue the following MySQL query. Replace the IP in the example (127.0.0.1) with the actual IP you wish to check.
+<code>SELECT start FROM IP WHERE start &lt;= INET_ATON('127.0.0.1') AND end &gt;= INET_ATON('127.0.0.1');</code></p>
+<p>If the query returns a result, it means a proxy was detected. If it returns no results, the IP is not detected as a proxy.</p>
+<p><b>Text File Blocklist</b></p><p>
+</p><p>To retrieve a copy of the blocklist as a text file, please run this command:
+<code>wget <a href="https://proxy.mind-media.com/block/blocklist.txt.gz">https://proxy.mind-media.com/block/blocklist.txt.gz</a></code></p>
+<p>To decompress the file, please run this command:
+<code>gunzip blocklist.txt.gz</code></p>
+<p>To check if an IP appears in the text blocklist, <a target="_blank" href="http://www.pc-tools.net/unix/grepcidr/">grepcidr</a> is one possible high-performance solution. To retrieve the source code, please run this command:
+<code>wget <a href="http://www.pc-tools.net/files/unix/grepcidr-2.0.tar.gz">http://www.pc-tools.net/files/unix/grepcidr-2.0.tar.gz</a></code></p>
+<p>To decompress the file, please run this command:
+<code>tar zxvf grepcidr-2.0.tar.gz</code></p>
+<p>To compile the executable, please run this command:
+<code>cd grepcidr-2.0 &amp;&amp; make &amp;&amp; make install</code></p>
+<p>When you want to check if someone is using a proxy, you would run the following command. Replace the IP in the example (127.0.0.1) with the actual IP you wish to check.
+<code>grepcidr -c -f blocklist.txt &lt;(echo "127.0.0.1")</code></p>
+</body></html>
