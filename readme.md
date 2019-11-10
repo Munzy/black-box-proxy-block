@@ -4,6 +4,12 @@ As of this posting... Black Box Proxy Block has been discontinued.
 
 The files located in the /archive folder are what is left from the service.
 
+# Replacement 
+
+I've been working on a replacement, and my current work can be seen working here. 
+
+https://blackbox.ipinfo.app/lookup/8.8.8.8
+
 
 # Goals 
 
